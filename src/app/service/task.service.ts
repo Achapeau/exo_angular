@@ -1,33 +1,37 @@
 import { Injectable } from '@angular/core';
+import { TasksModule } from '../model/tasks/tasks.module';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-  Tasks: Object[] = [
-    {
-      title: 'Task 1',
-      description: 'Description 1'
-    },
-    {
-      title: 'Task 2',
-      description: 'Description 2'
-    },
-    {
-      title: 'Task 3',
-      description: 'Description 3'
-    }
-  ]
+  private tasksSubject = new BehaviorSubject<TasksModule[]>([]);
 
   constructor() { }
 
-  getTasks() {
-    return this.Tasks
+  get tasks$() {
+    return this.tasksSubject.asObservable();  
   }
   
+  get tasks(): TasksModule[] {
+    return this.tasksSubject.value;
+  }
 
   setTask(title: string, description: string) {
-    this.Tasks = [...this.Tasks, { title, description }]
+  const task = {
+    id: this.tasksSubject.value.length + 1,
+    title,
+    description
+  };
+
+  this.tasksSubject.next([...this.tasksSubject.value, task]);
+  }
+
+  deleteTask(task: TasksModule) {
+    this.tasksSubject.next(
+      this.tasksSubject.value.filter((t) => t.id !== task.id)
+    );
   }
   
 }

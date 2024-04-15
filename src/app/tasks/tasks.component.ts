@@ -1,31 +1,24 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { TaskService } from '../service/task.service';
+import { Component, Input, OnInit, Output } from "@angular/core";
+import { TaskService } from "../service/task.service";
+import { TasksModule } from "../model/tasks/tasks.module";
 
 @Component({
-  selector: 'app-tasks',
-  templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.scss']
+  providers: [TaskService],
+  selector: "app-tasks",
+  templateUrl: "./tasks.component.html",
+  styleUrls: ["./tasks.component.scss"],
 })
-export class TasksComponent implements OnInit{
-  @Input() submit!: boolean;  
+export class TasksComponent implements OnInit {
   @Output() title!: string;
   modalVisible: boolean = false;
-  items = ['Item 1', 'Item 2', 'Item 3'];
-  tasks!: Object[]
+  tasks: TasksModule[] = [];
 
-  constructor(private taskService: TaskService) { }
-
+  constructor(private taskService: TaskService) {}
   ngOnInit(): void {
-    tasks = this.taskService.getTasks()
+    this.taskService.tasks$.subscribe((tasks) => (this.tasks = tasks));
   }
 
-  addItem(): void {
-    this.items.push(`Item ${this.items.length}`);
-  }
-
-  
- 
-  removeItem(): void {
-    this.items = this.items.slice(0, this.items.length - 1);
+  deleteTask(task: TasksModule) {
+    this.taskService.deleteTask(task);
   }
 }

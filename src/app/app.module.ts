@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { TasksComponent } from './tasks/tasks.component';
 import { FormComponent } from './lib/form/form.component';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { TasksModule } from './model/tasks/tasks.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
     BrowserAnimationsModule,
     SortableModule.forRoot(),
     FormsModule,
-    AccordionModule.forRoot()
+    AccordionModule.forRoot(),
+    TasksModule
   ],
   providers: [],
   bootstrap: [AppComponent]

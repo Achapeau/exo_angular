@@ -6,18 +6,23 @@ import { TaskService } from 'src/app/service/task.service';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent {
-  constructor(private submit: TaskService) { }
   @Input() isOpen!: boolean; 
   @Output() isOpenChange = new EventEmitter<boolean>();
   title: string = '';
   description: string = '';
-
+  
+  constructor(private tasks: TaskService) { }
 
   onSubmit(): void {        
-    this.submit.setTask(this.title, this.description);
+    this.tasks.setTask(this.title, this.description);
+    this.title = '';
+    this.description = '';
+    console.log(this.tasks);    
+  } 
+
+  onClose(): void {
     this.isOpen = false;
     this.isOpenChange.emit(false);
   }
- 
 
 }
