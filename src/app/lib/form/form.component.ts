@@ -1,13 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { TaskModel } from 'src/app/tasks/task.model';
-
+import { TaskService } from 'src/app/service/task.service';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent {
-  @Output() submit: EventEmitter<TaskModel> = new EventEmitter();
+  constructor(private submit: TaskService) { }
   @Input() isOpen!: boolean; 
   @Output() isOpenChange = new EventEmitter<boolean>();
   title: string = '';
@@ -15,7 +14,7 @@ export class FormComponent {
 
 
   onSubmit(): void {        
-    this.submit.emit({ title: this.title, description: this.description });
+    this.submit.setTask(this.title, this.description);
     this.isOpen = false;
     this.isOpenChange.emit(false);
   }

@@ -1,31 +1,23 @@
-import { Component, Input, Output } from '@angular/core';
-import { TaskModel } from './task.model';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { TaskService } from '../service/task.service';
 
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.scss']
 })
-export class TasksComponent{
+export class TasksComponent implements OnInit{
   @Input() submit!: boolean;  
   @Output() title!: string;
   modalVisible: boolean = false;
   items = ['Item 1', 'Item 2', 'Item 3'];
-  tasks: TaskModel[] = [
-    {
-      title: 'Task 1',
-      description: 'Description 1'
-    },
-    {
-      title: 'Task 2',
-      description: 'Description 2'
-    },
-    {
-      title: 'Task 3',
-      description: 'Description 3'
-    }
-  ];
+  tasks!: Object[]
 
+  constructor(private taskService: TaskService) { }
+
+  ngOnInit(): void {
+    tasks = this.taskService.getTasks()
+  }
 
   addItem(): void {
     this.items.push(`Item ${this.items.length}`);
