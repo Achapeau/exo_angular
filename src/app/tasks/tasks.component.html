@@ -1,0 +1,16 @@
+<accordion>
+    <accordion-group heading="Dynamic Body Content">
+      <p>The body of the accordion group grows to fit the contents</p>
+      <button type="button" class="btn btn-primary btn-sm" (click)="modalVisible = !modalVisible ">Add
+        Item
+      </button>
+      <app-modal [(isOpen)]="modalVisible">
+        <app-form [(isOpen)]="modalVisible" ></app-form>
+        </app-modal>
+      <button type="button" class="btn btn-primary btn-sm ms-3 ml-3" (click)="removeItem()">Remove
+        Item
+      </button>
+      <div *ngFor="let item of items">{{item}}</div>
+      <div *ngFor="let tasks of tasks">{{tasks.title}}</div>
+    </accordion-group>
+  </accordion>

@@ -1,0 +1,13 @@
+<p >
+    <app-button title="Click me" (click)="clickButton()"></app-button>
+</p>
+<div>
+    <button (click)="modalVisible = !modalVisible " type="button" class="btn btn-primary mx-2 ">Open Modal</button>
+    <app-modal [(isOpen)]="modalVisible">
+    <h1>Salut les moches!</h1>
+    </app-modal>
+</div>
+<div>
+    <app-sortable></app-sortable>
+</div>
+

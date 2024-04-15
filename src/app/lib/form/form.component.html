@@ -1,0 +1,13 @@
+<form action="submit">
+    <div class="mb-3">
+        <label for="title" class="form-label">Titre de la tâche</label>
+        <input [(ngModel)]="title" name="title" type="text" class="form-control" id="title" placeholder="Titre 1">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" [(ngModel)]="description" name="description" id="description" rows="3"></textarea>
+    </div>
+</form>
+<div>
+    <button (click)="onSubmit()" type="button" class="btn btn-primary">Valider</button>
+</div>

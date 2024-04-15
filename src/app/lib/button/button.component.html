@@ -1,0 +1,8 @@
+<button class="btn" (click)="onClick()" [disabled]="loading">
+   <ng-container *ngIf="!loading; else loadingTemplate">
+     {{ title }}
+   </ng-container>
+   <ng-template #loadingTemplate>
+     <div class="loader" (click)="onClick()"></div> 
+   </ng-template>
+ </button>
