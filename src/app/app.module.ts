@@ -15,7 +15,6 @@ import { FormsModule } from '@angular/forms';
 import { TasksComponent } from './tasks/tasks.component';
 import { FormComponent } from './lib/form/form.component';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
-import { TasksModule } from './model/tasks/tasks.module';
 import { TaskSortComponent } from './lib/task-sort/task-sort.component';
 
 @NgModule({
@@ -38,7 +37,6 @@ import { TaskSortComponent } from './lib/task-sort/task-sort.component';
     SortableModule.forRoot(),
     FormsModule,
     AccordionModule.forRoot(),
-    // TasksModule
   ],
   providers: [],
   bootstrap: [AppComponent]
