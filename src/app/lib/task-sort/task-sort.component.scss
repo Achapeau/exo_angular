@@ -1,0 +1,128 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 100%;
+    justify-content: center;
+
+    .col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .col-md-5 {
+        flex: 0 0 41.666667%;
+        max-width: 41.666667%;
+    }
+
+    .col-lg-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .drag {
+        cursor: grab;
+    }
+
+    .placeholderStyle {
+        color: #000;
+    }
+
+    .sortable-wrapper {
+        min-height: 50px;
+    }
+
+    .sortable-item {
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #cc4343;
+        cursor: pointer;
+        border-radius: 15px;
+    }
+
+    .sortable-item-active {
+        background-color: #ff0000;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .col {
+        position: relative;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0,0,0,.125);
+            border-radius: .25rem;
+        }
+
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1.25rem;
+        }
+
+        .card-title {
+            margin-bottom: .75rem;
+        }
+
+        .card-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .btn {
+            position: relative;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: .25rem;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+
+        .btn-primary:focus, .btn-primary.focus {
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
+        }
+
+        .btn-primary.disabled, .btn-primary:disabled {
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+        .show > .btn-primary.dropdown-toggle {
+            color: #fff;
+            background-color: #0062cc;
+            border-color: #005cbf;
+        }
+
+        .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
+
+        }
+    }
+}

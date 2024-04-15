@@ -58,4 +58,28 @@ itemObjectsRight: IItemObject[] = [
   }
 ]
 
+itemObjectsMiddle: IItemObject[] = [
+  {
+    id: 11,
+    name: 'Item 11'
+  },
+  {
+    id: 12,
+    name: 'Item 12'
+  },
+  {
+    id: 13,
+    name: 'Item 13'
+  },
+  {
+    id: 14,
+    name: 'Item 14'
+  },
+  {
+    id: 15,
+    name: 'Item 15'
+  }
+
+]
+
 }

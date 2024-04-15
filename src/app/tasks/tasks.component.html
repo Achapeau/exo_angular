@@ -1,5 +1,6 @@
 <div class="container">
   <div class="accordion">
+    <app-task-sort></app-task-sort>
     <accordion  *ngFor="let task of tasks">
         <accordion-group heading={{task.title}}>
           <p>The body of the accordion group grows to fit the contents</p>

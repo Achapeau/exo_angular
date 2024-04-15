@@ -10,11 +10,12 @@ export class FormComponent {
   @Output() isOpenChange = new EventEmitter<boolean>();
   title: string = '';
   description: string = '';
+  status: string = 'todo';
   
   constructor(private tasks: TaskService) { }
 
   onSubmit(): void {        
-    this.tasks.setTask(this.title, this.description);
+    this.tasks.setTask(this.title, this.description, this.status);
     this.title = '';
     this.description = '';
     console.log(this.tasks);    
