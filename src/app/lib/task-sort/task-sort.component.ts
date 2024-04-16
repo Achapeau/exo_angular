@@ -20,6 +20,12 @@ export class TaskSortComponent{
       this.itemObjectsLeft = tasks.filter((task) => task.status === TaskEnum.TO_DO);
       this.itemObjectsMiddle = tasks.filter((task) => task.status === TaskEnum.IN_PROGRESS);
       this.itemObjectsRight = tasks.filter((task) => task.status === TaskEnum.DONE);
+      console.log(this);
     })
   }
+
+  onViewTask() {
+    console.log(this.tasks.tasks$.forEach((task) => console.log(task)));
+  }
+    
 }

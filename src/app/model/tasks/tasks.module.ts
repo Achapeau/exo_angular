@@ -8,8 +8,8 @@ export class TasksModule {
   id!: number;
   title!: string;
   description!: string;
-  status!: TaskEnum;
+  status!: TaskEnum.TO_DO | TaskEnum.IN_PROGRESS | TaskEnum.DONE;
   taskDetails?: TodoTask | DoneTask | OnProgressTask;
 
-  constructor(id: number, title: string, description: string, status: TaskEnum, taskDetails?: TodoTask | DoneTask | OnProgressTask) {}
+  constructor(id: number, title: string, description: string, status: TaskEnum.DONE | TaskEnum.IN_PROGRESS | TaskEnum.TO_DO, taskDetails?: TodoTask | DoneTask | OnProgressTask) {}
  }

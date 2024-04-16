@@ -16,6 +16,8 @@ import { TasksComponent } from './tasks/tasks.component';
 import { FormComponent } from './lib/form/form.component';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { TaskSortComponent } from './lib/task-sort/task-sort.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { MyHttpService } from './myhttp.service';
 
 @NgModule({
   declarations: [
@@ -37,8 +39,13 @@ import { TaskSortComponent } from './lib/task-sort/task-sort.component';
     SortableModule.forRoot(),
     FormsModule,
     AccordionModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: MyHttpService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
